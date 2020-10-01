@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity2">
 
     <Button
         android:id="@+id/start_server"
@@ -29,12 +29,18 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:text="Message to send to other device" />
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/edMessage"
+        />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/send_data"
-        android:layout_below="@+id/edMessage">
+        android:layout_below="@+id/imageview">
 
         <LinearLayout
             android:id="@+id/msgList"
@@ -54,6 +60,14 @@
         android:onClick="onClick"
         android:layout_centerHorizontal="true"
         android:text="Send Message to Client/server"
-         />
-
+        />
+    <Button
+        android:id="@+id/send_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/send_data"
+        android:onClick="onClick"
+        android:layout_centerHorizontal="true"
+        android:text="Send image to Client"
+        />
 </RelativeLayout>
