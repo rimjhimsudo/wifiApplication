@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 while (!Thread.currentThread().isInterrupted()) {
                     try {
                         socket = serverSocket.accept();
-                        Log.d("SOCKET value  : ",socket.toString());
+                        Log.d("SOCKET value :",socket.toString());
                         CommunicationThread commThread = new CommunicationThread(socket);
                         new Thread(commThread).start();
                     } catch (IOException e) {
@@ -148,9 +148,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                  this.input = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
             } catch (IOException e) {
                 e.printStackTrace();
-                showMessage("Error Connecting to Client!!", Color.RED);
+                //showMessage("Error Connecting to Client!!", Color.RED);
             }
-            showMessage("Connected to Client!!", greenColor);
+            //showMessage("Connected to Client!!", greenColor);
         }
 
         public void run() {
@@ -160,11 +160,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (null == read || "Disconnect".contentEquals(read)) {
                         Thread.interrupted();
                         read = "Client Disconnected";
-                        showMessage("Client : " + read, greenColor);
+                        //showMessage("Client : " + read, greenColor);
                         Log.d("SERVERSIDE","CLient msg on server recived"+read);
                         break;
                     }
-                    showMessage("Client : " + read, greenColor);
+                    showMessage("Client : " + read, greenColor); //take msg from read coming from client side
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

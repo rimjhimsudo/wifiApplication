@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static final int SERVERPORT = 3003;
 
-    public static final String SERVER_IP = "192.168.0.100";
+    public static final String SERVER_IP = "192.168.0.101";
     private ClientThread clientThread;
     //ClientFileThread clientFileThread;
     private Thread thread;
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             /*clientFileThread=new ClientFileThread();
             thread=new Thread(clientFileThread);
             thread.start();*/
-            //thiss code for thread which was receiving and sending messages
+            //this code for thread which was receiving and sending messages
             clientThread = new ClientThread();
             thread = new Thread(clientThread);
             thread.start();
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view.getId() == R.id.send_data) {
             String clientMessage = edMessage.getText().toString().trim();
             showMessage(clientMessage, Color.BLUE);
-            if (null != clientThread) {
+            if (clientThread!=null) {
                 clientThread.sendMessage(clientMessage);
             }
         }
